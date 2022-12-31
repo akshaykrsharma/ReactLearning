@@ -1,0 +1,14 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "LearningReactJS",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Akshay Sharma",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.8.2"
+  }
+}
