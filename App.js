@@ -1,10 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-const heading = <h1>Namaste React</h1>;
-const heading2 = React.createElement('h2', { style: {} }, 'Ram-Ram React');
+const Title = () => {
+	// It's Component
+	return <h1 key="key1">Namaste React</h1>;
+};
 
-const container = React.createElement('div', {}, [heading, heading2]);
+// heading2 is JSON Object
+const heading2 = <h2>Hello World</h2>;
+
+const HeaderComponent = () => {
+	// It's Component
+	return (
+		<div>
+			<Title />
+			{/*Function Component can be called in This way*/}
+			{Title()}
+			{heading2}
+		</div>
+	);
+};
+
+//COMPONENT COMPOSITION : PARSING COMPONENT INTO ANOTHER COMPONENT
 console.log('I am here to be removed by parcel');
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(container);
+root.render(<HeaderComponent />);
