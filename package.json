@@ -8,7 +8,12 @@
   },
   "author": "Akshay Sharma",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@personal.github.com:akshaykrsharma/ReactLearning.git"
+  },
+  "devDependencies": {
     "parcel": "^2.8.2"
   }
 }
