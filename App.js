@@ -5,6 +5,6 @@ const heading = React.createElement('h1', { style: { fontSize: '50px', color: 'r
 const heading2 = React.createElement('h2', { style: {} }, 'Ram-Ram React');
 
 const container = React.createElement('div', {}, [heading, heading2]);
-
+console.log('I am here to be removed by parcel');
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(container);
