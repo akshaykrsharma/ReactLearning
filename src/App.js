@@ -5,7 +5,7 @@ import Header from './components/Header';
 import About from './components/About';
 import Body from './components/Body';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 /**
      Header
         - Logo(Title)
@@ -56,6 +56,7 @@ const AppLayout = () => {
 			<Header />
 			<Body />
 			<Footer />
+			<Outlet />
 		</>
 	);
 };
@@ -63,11 +64,13 @@ const AppLayout = () => {
 const AppRoutes = createBrowserRouter([
 	{
 		path: '/',
-		element: <AppLayout />
-	},
-	{
-		path: '/about',
-		element: <About />
+		element: <AppLayout />,
+		children: [
+			{
+				path: '/about',
+				element: <About />
+			}
+		]
 	}
 ]);
 
