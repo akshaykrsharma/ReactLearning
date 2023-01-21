@@ -33,3 +33,12 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.shimmer{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: gainsboro;
+    padding: 10px;
+    margin: 10px;
+}

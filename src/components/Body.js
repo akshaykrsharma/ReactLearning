@@ -1,9 +1,28 @@
 import { restaurantList } from '../config';
 import RestaurantCard from './RestaurantCard';
-import { useState } from 'react';
+import Shimmer from './Shimmer';
+import { useState, useEffect } from 'react';
 const Body = () => {
 	const [searchText, setSearchText] = useState('');
-	const [restaurantListData, setRestaurantList] = useState(restaurantList);
+	const [restaurantListData, setRestaurantList] = useState([]);
+	const [filterRestaurantData, setFilterRestaurant] = useState([]);
+	useEffect(() => {
+		getRestaurants();
+	}, []);
+
+	async function getRestaurants() {
+		const data = await fetch(
+			'https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8682407&lng=75.78838689999999&page_type=DESKTOP_WEB_LISTING'
+		);
+
+		console.log(data);
+		const json = await data.json();
+
+		setRestaurantList(json?.data?.cards[2]?.data?.data?.cards);
+		setFilterRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+
+		console.log(json);
+	}
 	return (
 		<>
 			<div className="search-container">
@@ -18,16 +37,20 @@ const Body = () => {
 				></input>
 				<button
 					onClick={() => {
-						setRestaurantList(filterList(restaurantList, searchText));
+						setFilterRestaurant(filterList(restaurantListData, searchText));
 					}}
 				>
 					Search
 				</button>
 			</div>
 			<div className="restaurant-list">
-				{restaurantListData.map(restaurant => {
-					return <RestaurantCard {...restaurant.data} key={restaurant.data.id} />;
-				})}
+				{filterRestaurantData.length == 0 ? (
+					<Shimmer></Shimmer>
+				) : (
+					filterRestaurantData.map(restaurant => {
+						return <RestaurantCard {...restaurant.data} key={restaurant.data.id} />;
+					})
+				)}
 			</div>
 		</>
 	);
