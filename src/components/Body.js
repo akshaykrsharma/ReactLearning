@@ -2,6 +2,8 @@ import { restaurantList } from '../config';
 import RestaurantCard from './RestaurantCard';
 import Shimmer from './Shimmer';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 const Body = () => {
 	const [searchText, setSearchText] = useState('');
 	const [restaurantListData, setRestaurantList] = useState([]);
