@@ -50,7 +50,11 @@ const Body = () => {
 					<Shimmer></Shimmer>
 				) : (
 					filterRestaurantData.map(restaurant => {
-						return <RestaurantCard {...restaurant.data} key={restaurant.data.id} />;
+						return (
+							<Link to={'restaurant/' + restaurant.data.id}>
+								<RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+							</Link>
+						);
 					})
 				)}
 			</div>
