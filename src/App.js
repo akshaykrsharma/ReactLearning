@@ -60,10 +60,15 @@ const AppLayout = () => {
 	);
 };
 
+function renderError() {
+	return <h1>404: Not Found</h1>;
+}
+
 const AppRoutes = createBrowserRouter([
 	{
 		path: '/',
 		element: <AppLayout />,
+		errorElement: renderError(),
 		children: [
 			{
 				path: '/about',
