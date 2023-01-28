@@ -3,6 +3,7 @@ import RestaurantCard from './RestaurantCard';
 import Shimmer from './Shimmer';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import useOnline from '../utils/useOnline';
 
 const Body = () => {
 	const [searchText, setSearchText] = useState('');
@@ -25,6 +26,9 @@ const Body = () => {
 
 		console.log(json);
 	}
+
+	const isOnline = useOnline();
+
 	return (
 		<>
 			<div className="search-container">
@@ -45,6 +49,7 @@ const Body = () => {
 					Search
 				</button>
 			</div>
+			<h1>{isOnline ? 'I am Online' : 'I am Offline'}</h1>
 			<div className="restaurant-list">
 				{filterRestaurantData.length == 0 ? (
 					<Shimmer></Shimmer>
