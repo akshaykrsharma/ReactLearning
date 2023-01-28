@@ -26,7 +26,7 @@ export default function RestaurantMenu() {
 			<h1>Menu</h1>
 			<ul>
 				{Object.values(restaurant?.menu?.items).map(item => (
-					<li>{item.name}</li>
+					<li key={item.id}>{item.name}</li>
 				))}
 			</ul>
 		</div>
