@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import UserContext from '../utils/UserContext';
 const Title = () => (
 	<a href="/">
 		<img
@@ -10,6 +12,7 @@ const Title = () => (
 );
 
 const Header = () => {
+	const context = useContext(UserContext);
 	return (
 		<div className="flex justify-between bg-red-50 shadow-lg">
 			<Title />
@@ -33,7 +36,12 @@ const Header = () => {
 				</ul>
 			</div>
 
-			<button className="p-3">Login</button>
+			<div>
+				<h3>{context.user.name}</h3>
+				<h3>{context.user.email}</h3>
+
+				<button className="p-3">Login</button>
+			</div>
 		</div>
 	);
 };

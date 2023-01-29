@@ -1,9 +1,11 @@
+import { useContext } from 'react';
 import { restaurantList } from '../config';
 import RestaurantCard from './RestaurantCard';
 import Shimmer from './Shimmer';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useOnline from '../utils/useOnline';
+import UserContext from '../utils/UserContext';
 
 const Body = () => {
 	const [searchText, setSearchText] = useState('');
@@ -28,6 +30,7 @@ const Body = () => {
 	}
 
 	const isOnline = useOnline();
+	const data = useContext(UserContext);
 
 	return (
 		<>
@@ -42,6 +45,7 @@ const Body = () => {
 					type="text"
 					placeholder="Search"
 				></input>
+				<input onChange={e => data.setUser({ name: e.target.value })} value={data.user.name}></input>
 				<button
 					className="px-4 py-1 m-2 bg-purple-900 text-white rounded-full"
 					onClick={() => {
