@@ -31,8 +31,9 @@ const Body = () => {
 
 	return (
 		<>
-			<div className="p-5 bg-pink-100">
+			<div className="p-5 bg-pink-100 mt-2">
 				<input
+					className="p-2"
 					value={searchText}
 					onChange={e => {
 						console.log('' + e.target.value);
@@ -42,7 +43,7 @@ const Body = () => {
 					placeholder="Search"
 				></input>
 				<button
-					className="p-2 m-2 bg-purple-900 text-white rounded-xl"
+					className="px-4 py-1 m-2 bg-purple-900 text-white rounded-full"
 					onClick={() => {
 						setFilterRestaurant(filterList(restaurantListData, searchText));
 					}}
@@ -57,7 +58,10 @@ const Body = () => {
 				) : (
 					filterRestaurantData.map(restaurant => {
 						return (
-							<Link className="flex-wrap shadow-lg  m-2" to={'restaurant/' + restaurant.data.id}>
+							<Link
+								className="flex-wrap shadow-lg  m-2  rounded-lg border-cyan-50"
+								to={'restaurant/' + restaurant.data.id}
+							>
 								<RestaurantCard {...restaurant.data} key={restaurant.data.id} />
 							</Link>
 						);

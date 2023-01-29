@@ -11,7 +11,7 @@ const Title = () => (
 
 const Header = () => {
 	return (
-		<div className="flex justify-between bg-pink-50 shadow-lg">
+		<div className="flex justify-between bg-red-50 shadow-lg">
 			<Title />
 			<div>
 				<ul className="flex justify-between py-10">
@@ -33,7 +33,7 @@ const Header = () => {
 				</ul>
 			</div>
 
-			<button>Login</button>
+			<button className="p-3">Login</button>
 		</div>
 	);
 };
