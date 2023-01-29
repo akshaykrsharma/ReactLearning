@@ -31,7 +31,7 @@ const Body = () => {
 
 	return (
 		<>
-			<div className="search-container">
+			<div className="p-5 bg-pink-100">
 				<input
 					value={searchText}
 					onChange={e => {
@@ -42,6 +42,7 @@ const Body = () => {
 					placeholder="Search"
 				></input>
 				<button
+					className="p-2 m-2 bg-purple-900 text-white rounded-xl"
 					onClick={() => {
 						setFilterRestaurant(filterList(restaurantListData, searchText));
 					}}
@@ -50,13 +51,13 @@ const Body = () => {
 				</button>
 			</div>
 			<h1>{isOnline ? 'I am Online' : 'I am Offline'}</h1>
-			<div className="restaurant-list">
+			<div className="flex flex-wrap justify-center">
 				{filterRestaurantData.length == 0 ? (
 					<Shimmer></Shimmer>
 				) : (
 					filterRestaurantData.map(restaurant => {
 						return (
-							<Link to={'restaurant/' + restaurant.data.id}>
+							<Link className="flex-wrap shadow-lg  m-2" to={'restaurant/' + restaurant.data.id}>
 								<RestaurantCard {...restaurant.data} key={restaurant.data.id} />
 							</Link>
 						);

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 const Title = () => (
 	<a href="/">
 		<img
-			className="logo"
+			className="h-28 p-2"
 			alt="logo"
 			src="https://yt3.ggpht.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"
 		/>
@@ -11,27 +11,29 @@ const Title = () => (
 
 const Header = () => {
 	return (
-		<div className="header">
+		<div className="flex justify-between bg-pink-50 shadow-lg">
 			<Title />
-			<div className="nav-items">
-				<ul>
-					<li>
+			<div>
+				<ul className="flex justify-between py-10">
+					<li className="px-2">
 						<Link to="/">Home</Link>
 					</li>
-					<li>
+					<li className="px-2">
 						<Link to="/about">About</Link>
 					</li>
-					<li>
+					<li className="px-2">
 						<Link to="/contact">Contact</Link>
 					</li>
-					<li>
+					<li className="px-2">
 						<Link to="/cart">Cart</Link>
 					</li>
-					<li>
+					<li className="px-2">
 						<Link to="/instamart">Instamart</Link>
 					</li>
 				</ul>
 			</div>
+
+			<button>Login</button>
 		</div>
 	);
 };
