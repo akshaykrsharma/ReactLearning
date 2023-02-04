@@ -45,7 +45,9 @@ const Body = () => {
 					type="text"
 					placeholder="Search"
 				></input>
+
 				<input onChange={e => data.setUser({ name: e.target.value })} value={data.user.name}></input>
+
 				<button
 					className="px-4 py-1 m-2 bg-purple-900 text-white rounded-full"
 					onClick={() => {
