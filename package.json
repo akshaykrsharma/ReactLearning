@@ -10,9 +10,11 @@
   "author": "Akshay Sharma",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.2"
   },
   "repository": {
