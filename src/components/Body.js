@@ -34,9 +34,9 @@ const Body = () => {
 
 	return (
 		<>
-			<div className="p-5 bg-pink-100 mt-2">
+			<div className="p-5 bg-slate-200 mt-2">
 				<input
-					className="p-2"
+					className="p-2 px-5 rounded-2xl"
 					value={searchText}
 					onChange={e => {
 						console.log('' + e.target.value);
@@ -46,7 +46,7 @@ const Body = () => {
 					placeholder="Search"
 				></input>
 
-				<input onChange={e => data.setUser({ name: e.target.value })} value={data.user.name}></input>
+				{/* <input onChange={e => data.setUser({ name: e.target.value })} value={data.user.name}></input> */}
 
 				<button
 					className="px-4 py-1 m-2 bg-purple-900 text-white rounded-full"
@@ -57,7 +57,7 @@ const Body = () => {
 					Search
 				</button>
 			</div>
-			<h1>{isOnline ? 'I am Online' : 'I am Offline'}</h1>
+			<h1 className="p-2">{isOnline ? 'I am Online' : 'I am Offline'}</h1>
 			<div className="flex flex-wrap justify-center">
 				{filterRestaurantData.length == 0 ? (
 					<Shimmer></Shimmer>
