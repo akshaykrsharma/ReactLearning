@@ -1,11 +1,11 @@
-import { useContext } from 'react';
+// import { useContext } from 'react';
 import { restaurantList } from '../config';
 import RestaurantCard from './RestaurantCard';
 import Shimmer from './Shimmer';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useOnline from '../utils/useOnline';
-import UserContext from '../utils/UserContext';
+// import UserContext from '../utils/UserContext';
 
 const Body = () => {
 	const [searchText, setSearchText] = useState('');
@@ -30,7 +30,7 @@ const Body = () => {
 	}
 
 	const isOnline = useOnline();
-	const data = useContext(UserContext);
+	// const data = useContext(UserContext);
 
 	return (
 		<>

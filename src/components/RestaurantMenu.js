@@ -4,11 +4,17 @@ import { useParams } from 'react-router-dom';
 import Shimmer from './Shimmer';
 import useRestaurant from '../utils/useRestaurant';
 import constant from '../constant';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../utils/cartSlice';
 
 export default function RestaurantMenu() {
 	const { resId } = useParams();
 
 	const restaurant = useRestaurant(resId);
+	const dispatch = useDispatch();
+	function handleAddItem(item) {
+		dispatch(addItem(item));
+	}
 
 	return !restaurant ? (
 		<Shimmer></Shimmer>
@@ -26,7 +32,15 @@ export default function RestaurantMenu() {
 			<h1>Menu</h1>
 			<ul>
 				{Object.values(restaurant?.menu?.items).map(item => (
-					<li key={item.id}>{item.name}</li>
+					<div className="flex m-2">
+						<li key={item.id}>{item.name}-</li>
+						<button
+							className="shadow-lg bg-green-400  rounded-lg border-cyan-50 px-5 mx-1"
+							onClick={() => handleAddItem(item)}
+						>
+							Add
+						</button>
+					</div>
 				))}
 			</ul>
 		</div>
