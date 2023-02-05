@@ -1,12 +1,11 @@
 {
-	"plugins": [
+	"presets": [
 		[
-			"transform-remove-console",
+			"@babel/preset-env",
 			{
-				"exclude": [
-					"error",
-					"warn"
-				]
+				"targets": {
+					"node": "current"
+				}
 			}
 		]
 	]
